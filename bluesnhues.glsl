@@ -13,7 +13,7 @@ vec3 r( vec2 _uv, float _t )
     {
       c  = mod( mod(length(.7-_uv),.1)*20.*sin(_t+sqrt(abs(2.*sin(_uv.y)*cos(_uv.x)*2.))),.26)*5.;
       c -= mod( mod(length(.3-_uv),.1)*20.*sin(_t+sqrt(abs(2.*sin(_uv.y)*cos(_uv.x)*2.))),.26)*5.; 
-	  c += mod( length(.7-_uv)*sin(_t+sqrt(abs(2.*sin(_uv.y)*cos(_uv.x)*2.)) ),.26)*5.;
+      c += mod( length(.7-_uv)*sin(_t+sqrt(abs(2.*sin(_uv.y)*cos(_uv.x)*2.)) ),.26)*5.;
       c += mod( length(.3-_uv)*sin(_t+sqrt(abs(2.*sin(_uv.y)*cos(_uv.x)*2.)) ),.26)*5.; 
     }
     else
@@ -33,15 +33,11 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
    
     //fragColor = vec4( r(uv,t), 1. );
     //fragColor = vec4( 0.8*r(uv,t)+0.3*r(uv,t+.01)+0.2*r(uv,t+.02), 1. );
-	
+
     fragColor = vec4(.0);
     
     // motion blur
     for( float f = .0; f < .2; f+=.01 )
         fragColor += vec4( r(uv,t+f)*(.06-f*.03),1. );
-    
-    // radial blur
-    //for( float f = 1.; f > .0; f -=.01 )
-    //    fragColor += .015 * vec4( r( uv*f,t+(1.-f)*.1 ), 1. );
     
 }

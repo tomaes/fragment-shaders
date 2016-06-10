@@ -21,8 +21,8 @@ vec3 render( vec2 _uv, float _t )
 
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
-	vec2 uv = fragCoord.xy / iResolution.xy;
+    vec2 uv = fragCoord.xy / iResolution.xy;
     float t = mod(iGlobalTime, 1000.0);
-	
+
     fragColor = vec4( render(uv,t)*render(uv,t+10.55)*abs(1.8*sin((uv.x-.5)/uv.y)), 1.0);
 }

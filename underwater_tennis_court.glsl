@@ -13,10 +13,10 @@ vec3 lookUp( vec2 _uv, float _t )
     vec3 white = vec3(1.0,1.0,1.0);
     vec3 green = vec3(0.2,1.0,0.4);
     vec3 blue  = vec3(0.2,0.6,1.0);
-	vec3 c = green;
+    vec3 c = green;
     
     if (_uv.x > 0.1 && _uv.x < 0.9)
-    	c = blue;
+        c = blue;
 
     if (_uv.x > (0.1+o1) && _uv.x < (0.9-o1))
         c = white;
@@ -29,7 +29,7 @@ vec3 lookUp( vec2 _uv, float _t )
     if ((_uv.x > 0.2 && _uv.x < 0.2+o1) ||
         (_uv.x > 0.8 && _uv.x < 0.8+o1)) 
         c = white;
- 	
+ 
     // t-line: vertical
     if ((_uv.x > 0.5  && _uv.x < 0.5+o1) &&
         (_uv.y > 0.05 && _uv.y < 0.95))
@@ -38,24 +38,24 @@ vec3 lookUp( vec2 _uv, float _t )
     // net cord
     if ((_uv.y > 0.49 && _uv.y < 0.51) &&
         (_uv.x > 0.12 && _uv.x < 0.88))
-    	c = black;
+        c = black;
     
     // t-lines: down
     if ((_uv.y > 0.05 && _uv.y < 0.06) &&
         (_uv.x > 0.2 && _uv.x < 0.8))
-    	c = white;
+        c = white;
 
     // t-lines: up
     if ((_uv.y > 0.95 && _uv.y < 0.96) &&
         (_uv.x > 0.2 && _uv.x < 0.8))
-    	c = white;
+        c = white;
     
     return vec3( c.r-dist, c.g-dist*0.3, c.b); 
 }
 
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
-	vec2 uv = (fragCoord.xy / iResolution.xy);
+    vec2 uv = (fragCoord.xy / iResolution.xy);
 
     vec3 col = vec3(0.0,0.0,0.0);
     
@@ -67,15 +67,15 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     {    
         // ball transition
         if ( distance(vec2(uv.x,uv.y*0.7+0.15), vec2(0.5,0.5)) < cos(t+f*0.01) )
-    		col += 0.13 * lookUp( uv, t - (1.0/f)*2.0 );
+            col += 0.13 * lookUp( uv, t - (1.0/f)*2.0 );
         else
         {
             col += 0.03 * lookUp( uv, t - (1.0/f)*1.0 );
             
             if (((col.r + col.g + col.b)/3.0) > 0.05)
-            col = 1.3-col;//vec3(0.0,0.0,0.0);
-        		else
-            col = vec3(1.0,1.0,1.0-min(f*0.04, 0.69));
+                col = 1.3-col;//vec3(0.0,0.0,0.0);
+            else
+                col = vec3(1.0,1.0,1.0-min(f*0.04, 0.69));
 
         }
     }

@@ -18,7 +18,7 @@ float rb(vec2 _uv, float _t)
 
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
-	vec2 uv = (fragCoord.xy-iResolution.xy*.5) / iResolution.y;
+    vec2 uv = (fragCoord.xy-iResolution.xy*.5) / iResolution.y;
     float t = iGlobalTime;   
     
     uv.y += sin(t+3.1459*1.5*uv.x)*.03;
@@ -31,7 +31,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
           r( vec2(uv.x     ,uv.y-.025),t ))*.15;
     
     if (uv.y > .0)
-    	c = rb(uv,t);
+        c = rb(uv,t);
 
-	fragColor = vec4(c-uv.y*.6,c*.8,c*.5, 1.);
+    fragColor = vec4(c-uv.y*.6,c*.8,c*.5, 1.);
 }

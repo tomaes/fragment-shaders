@@ -3,7 +3,7 @@ const float PI = 3.1415926535;
 
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
-	vec2 uv = fragCoord.xy / iResolution.xy;
+    vec2 uv = fragCoord.xy / iResolution.xy;
     float t = iGlobalTime+740.0;
     
     uv.y /= sqrt(t+uv.x/uv.y)*(0.04 + sin(t+uv.x)*0.003);
@@ -17,10 +17,10 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     float o = mod(sin(t),0.2)*0.09;
     float ny = (0.75-size)*0.2;
     
-	// nose: left
+    // nose: left
     if (distance(vec2(0.63,0.65+ny),vec2(uv.x*1.3,uv.y)) < 0.01)
         c = vec3(1.0-uv.y*0.1,0.9,0.0);
-	// nose: right
+    // nose: right
     if (distance(vec2(0.71,0.65+ny),vec2(uv.x*1.3,uv.y)) < 0.01)
         c = vec3(1.0-uv.y*0.1,0.9,0.0); 
     
@@ -43,7 +43,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
         o+= abs(sin(uv.x*9.9))*0.05;
     
     if (uv.y+o*1.2 > size && uv.y-o*1.1 < 0.8-size)
-		c = vec3(1.0-uv.y,1.0-uv.y,0.8-uv.x);
+        c = vec3(1.0-uv.y,1.0-uv.y,0.8-uv.x);
     
     o = min(uv.x*uv.x+0.18,0.3); //sin(uv.x*PI)*bend + mod(uv.x+1.2*mod(uv.y*0.4,0.02),0.02);     
     

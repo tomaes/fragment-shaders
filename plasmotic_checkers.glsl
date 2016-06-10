@@ -19,8 +19,8 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 
     float h = normalize( length(vec3(1.2-c,0.6-c,c-uv.y)) );
     
-	if (h <= 1.)
-    	fragColor = vec4(1.2-c,.6-c,c-uv.y,1.);    
+    if (h <= 1.)
+        fragColor = vec4(1.2-c,.6-c,c-uv.y,1.);    
     else
         fragColor = vec4( mod(sqrt(sin(uv.y*45.)+cos(uv.x*45.)),.1)*10.,.2,uv.y*0.4,1.);
 }

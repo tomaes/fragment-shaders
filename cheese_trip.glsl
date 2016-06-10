@@ -14,9 +14,9 @@ vec4 circle(vec2 _uv, vec2 _p, float _d, vec3 _c)
 
 void mainImage( out vec4 f, in vec2 fragCoord )
 {
-	vec2 uv = fragCoord.xy / iResolution.xy;
+    vec2 uv = fragCoord.xy / iResolution.xy;
     
-	float t = iGlobalTime + 2.;
+    float t = iGlobalTime + 2.;
     
     float b  = abs(sin(t))*.5; 
     float b2 = sin(t*5.)*.1;

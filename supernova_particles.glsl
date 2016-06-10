@@ -1,6 +1,6 @@
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
-	vec2 uv = (fragCoord.xy-iResolution.xy*.5) / iResolution.y;
+    vec2 uv = (fragCoord.xy-iResolution.xy*.5) / iResolution.y;
     
     float c = .0;
     float z = .0;
@@ -12,12 +12,12 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
         c += (.03+f*f*.001)/distance( uv, vec2( sin(t+f*f+uv.x*z), cos(t-f*f+uv.y*z) ) );   
     }
         
-	fragColor = vec4(c-length(uv)*.5,c*.7,c*.53, 1.);
+    fragColor = vec4(c-length(uv)*.5,c*.7,c*.53, 1.);
 }
 -------------------------------------------------------
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
-	vec2 uv = (fragCoord.xy-iResolution.xy*.5) / iResolution.y;
+    vec2 uv = (fragCoord.xy-iResolution.xy*.5) / iResolution.y;
     
     float c = .0, z = .0;
     float t = iGlobalTime;
@@ -33,5 +33,5 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     if (uv.x < -.8 || uv.x >.8)
         c = 1.8-c;
     
-	fragColor = vec4(c-length(uv)*.5,c*.7,c*.53, 1.);
+    fragColor = vec4(c-length(uv)*.5,c*.7,c*.53, 1.);
 }

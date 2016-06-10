@@ -1,7 +1,7 @@
 // rising lethe bulbs
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
-	vec2 uv = fragCoord.xy / iResolution.xy;
+    vec2 uv = fragCoord.xy / iResolution.xy;
     
     float t = iGlobalTime * 0.1;   
     float c = 0.27; //+ sin(t*10.0+uv.y)*0.2; // - uv.y*0.01;
@@ -33,7 +33,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
         c = 0.5+uv.x*0.7;
         
         if (uv.x > 0.5-b && uv.x < 0.5+b)
-        	c -= 0.6-distance(uv,vec2(0.5,uv.x+0.3))*0.9;   
+            c -= 0.6-distance(uv,vec2(0.5,uv.x+0.3))*0.9;   
     }
     
     fragColor = vec4(c-uv.y*0.2,c-0.04,c*1.16,1.0);

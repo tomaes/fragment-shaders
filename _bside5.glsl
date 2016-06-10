@@ -21,7 +21,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     float c = r(uv,t) - r(uv*2.,t+5.);
 
     if (c > mod(-t*.1 + abs(sin(t*.1+uv.y*.5/uv.x*.2)),.2)*2. )
-    	c -= .5*rb(uv,t);     
+        c -= .5*rb(uv,t);     
     
-	fragColor = vec4(c+length(uv)*.35,c*.9,c+uv.y*.1, 1.);
+    fragColor = vec4(c+length(uv)*.35,c*.9,c+uv.y*.1, 1.);
 }

@@ -1,6 +1,6 @@
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
-	vec2 uv = (fragCoord.xy - iResolution.xy*.5) / iResolution.y;   
+    vec2 uv = (fragCoord.xy - iResolution.xy*.5) / iResolution.y;   
     float t = iGlobalTime + 2.65;
     
     const int iter = 8;
@@ -21,5 +21,5 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     
     float c = 1.6-length(uv/tan(t*5.+uv.y*5.));
     
-	fragColor = vec4( c, c*.6, c*.4-uv.y*.35,  1. );
+    fragColor = vec4( c, c*.6, c*.4-uv.y*.35,  1. );
 }

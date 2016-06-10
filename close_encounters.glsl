@@ -22,7 +22,7 @@ vec4 rr(vec2 _p, float _t, float _s)
     f += .1*vec4(r(_p.yx+mod(_p.y,.05),_t,-20.+mod(_t*5.,50.)*_s ),.1,.0, 1.).xxyx;
 
     if (mod(_t,.5)<.25)
-		f += ((mod(_p.x,.2) < 0.01+sin(_t*.5+_p.x*5.+_p.y*5.)*.005) ? .8 : .0);    	
+        f += ((mod(_p.x,.2) < 0.01+sin(_t*.5+_p.x*5.+_p.y*5.)*.005) ? .8 : .0);    	
 
     return f;    
 }
@@ -35,14 +35,14 @@ void mainImage( out vec4 c, vec2 p )
     c = vec4(0.,0.,0.,1.);
     float b = mod(.5 * sin(t + p.y/mod(p.y,.1) *5.),min(p.y*p.x,.03)  );
     
-	c  = rr( p, t, 1. );
+    c  = rr( p, t, 1. );
 
     // blue swipes
     c += abs(b * sin(p.x + t*5.)) * 10.;    
     
     // bright "scan" lines
     if (mod(t+p.y,.5) < 0.03)
-    	c = vec4( length(c) );
+        c = vec4( length(c) );
     
     //if (p.x < .1 || p.x > 1.7) c = vec4(1.);
 }
