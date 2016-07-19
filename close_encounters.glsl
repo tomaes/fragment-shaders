@@ -42,7 +42,5 @@ void mainImage( out vec4 c, vec2 p )
     
     // bright "scan" lines
     if (mod(t+p.y,.5) < 0.03)
-        c = vec4( length(c) );
-    
-    //if (p.x < .1 || p.x > 1.7) c = vec4(1.);
+        c = vec4( length(c) );    
 }

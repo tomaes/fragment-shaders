@@ -20,7 +20,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     
     uv.y += 0.08;
     
-    // white keys + sepatation
+    // white keys + separation
     if (uv.y > 0.2 && uv.y < 0.95)
     {
         c = vec3(1.0-uv.y*0.01,0.95,0.92);
@@ -29,7 +29,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
             c = vec3(0.0,0.0,0.0);
     }
     
-    // white keys shade
+    // white keys shading
     if (uv.y > 0.2 && uv.y < 0.95)
     {        
         if (mod(uv.x+0.08,tw) < 0.06)
@@ -61,7 +61,6 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
          || (p > 0.35  && p < 0.358)  // g#           
          || (p > 0.435 && p < 0.442)  // a#           
             )
-            //c = vec3(uv.y * 0.6, uv.y * 0.15, 0.0);
             c = vec3(0.5,0.5,0.5);
     }
         

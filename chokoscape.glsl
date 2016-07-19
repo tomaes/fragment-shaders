@@ -5,7 +5,6 @@
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
     vec2 uv = fragCoord.xy / iResolution.y;
-    //float t = OFF + iGlobalTime/(uv.y*sin(iGlobalTime+uv.x*uv.x));
     float t = OFF+1.5*iGlobalTime;
     float c = 1.0;
  

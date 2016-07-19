@@ -1,4 +1,6 @@
 // thumb delay test
+// (the point of this shader was to find out the exact delay between starting point and thumbnail creation point)
+// (result: exactly 10 seconds)
 void mainImage( out vec4 fragColor, in vec2 fragCoord )
 {
     vec2 uv = fragCoord.xy / iResolution.xy;

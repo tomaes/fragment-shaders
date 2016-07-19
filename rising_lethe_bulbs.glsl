@@ -14,7 +14,7 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
     if (mod(uv.y,0.1)<0.06)
         c = 0.38-c + sin(3.14159*uv.x)*0.15 + mod(uv.y,0.05);
 
-    // outter border
+    // outer border
     if (uv.x > 0.38+b && uv.x < 0.63-b)
         c = uv.y*0.3;  
     
